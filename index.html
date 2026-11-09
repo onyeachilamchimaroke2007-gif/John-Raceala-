@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Raceala | Official Author Website</title>
+    <style>
+        :root {
+            --bg-color: #fdfcf7; 
+            --text-color: #242424; 
+            --accent-color: #aa7c11; 
+            --accent-dark: #7a580a;
+            --dark-bg: #1c2126; 
+            --light-bg: #f4ece1;
+            --font-serif: 'Georgia', serif;
+            --font-sans: Arial, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: white;
+            border-bottom: 1px solid #e2ded4;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 1.8rem;
+            font-size: 0.95rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+        }
+
+        .hero-text .badge {
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .hero-text h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            color: var(--dark-bg);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h2.subtitle {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: normal;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+
+        .tagline-quote {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            font-style: italic;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(170,124,17,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .book-img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .book-cover {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            box-shadow: 5px 15px 35px rgba(0,0,0,0.25);
+            border-radius: 2px;
+            border-left: 3px solid rgba(255,255,255,0.15);
+        }
+
+        .trailer-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .trailer-section .section-intro {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: var(--dark-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 5px 15px 35px rgba(0,0,0,0.25);
+        }
+
+        .video-wrapper video,
+        .video-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .about-section {
+            background-color: var(--light-bg);
+            border-top: 1px solid #e2ded4;
+            border-bottom: 1px solid #e2ded4;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.7fr 1.3fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .author-img-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .author-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            border: 6px solid white;
+        }
+
+        .award-banner {
+            background-color: white;
+            padding: 2rem;
+            border-left: 4px solid var(--accent-color);
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .award-banner h4 {
+            font-family: var(--font-serif);
+            margin-bottom: 0.5rem;
+            color: var(--dark-bg);
+            font-size: 1.2rem;
+        }
+
+        h2.section-heading {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-bg);
+        }
+
+        .contact-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .email-link {
+            display: inline-block;
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            color: var(--dark-bg);
+            text-decoration: none;
+            margin: 1.5rem 0;
+            border-bottom: 2px dashed var(--accent-color);
+            transition: color 0.3s;
+        }
+
+        .email-link:hover {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: #a0a6ad;
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            .tagline-quote {
+                border-left: none;
+                border-top: 2px solid var(--accent-color);
+                border-bottom: 2px solid var(--accent-color);
+                padding: 1rem 0;
+            }
+            .hero-text h1 {
+                font-size: 2.3rem;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.8rem;
+            }
+            .award-banner {
+                text-align: left;
+            }
+            .email-link {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">John Raceala</div>
+            <nav>
+                <a href="#book">The Book</a>
+                <a href="#trailer">Book Trailer</a>
+                <a href="#about">About the Author</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="book" class="hero">
+        <div class="hero-text">
+            <span class="badge">Featured Memoir</span>
+            <h1>Smuggling Light in the Darkness</h1>
+            <h2 class="subtitle">A True Story of Faith, Bible Smuggling, and Survival Behind the Iron Curtain</h2>
+            
+            <div class="tagline-quote">
+                “There are moments in life when silence is not an option.”
+            </div>
+
+            <p style="margin-bottom: 1.2rem;">In Communist Romania, churches were monitored, Bibles were confiscated, and faith was a dangerous act. <em>Smuggling Light in the Darkness</em> is the gripping true story of one man's journey through the brutal Romanian prison system—an environment designed to strip away dignity, silence voices, and break the human spirit.</p>
+            
+            <p style="margin-bottom: 1.2rem;">Yet, amidst the darkness, hope survived. Through whispered prayers and secret encouragement, John witnessed how faith under fire reveals what cannot be broken.</p>
+
+            <p style="margin-bottom: 1.2rem; color: #555;">This memoir is not just a story of hardship; it is a testament to God's faithfulness in the harshest conditions. It is also a tribute to the silent heroes—the brothers in Christ who carried, hid, and smuggled Bibles—whose names may never appear in print, but whose courage made this story possible.</p>
+
+            <p style="margin-bottom: 2rem; font-style: italic; color: #666;">For readers of powerful memoirs and true stories of resilience, Smuggling Light in the Darkness is a profound reminder that the Word of God is worth any price, and that even in the deepest shadows, light can be carried in Romania, where printing Bibles was forbidden and smuggling them was a crime.</p>
+
+            <a href="https://amazon.com" target="_blank" rel="noopener" class="btn">Available on Amazon</a>
+        </div>
+
+        <div class="book-img-container">
+            <img src="book-cover.jpg" alt="Smuggling Light in the Darkness Book Cover" class="book-cover">
+        </div>
+    </section>
+
+    <section id="trailer" class="trailer-section">
+        <h2 class="section-heading">Book Trailer</h2>
+        <p class="section-intro">Watch the trailer for <em>Smuggling Light in the Darkness</em>.</p>
+
+        <div class="video-wrapper">
+            <!-- Option 1: self-hosted video file (upload book-trailer.mp4 next to index.html) -->
+            <video controls preload="metadata" poster="book-cover.jpg">
+                <source src="book-trailer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <!-- Option 2: YouTube embed. Delete the <video> above and use this instead,
+                 replacing VIDEO_ID with the ID from the YouTube link:
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="Smuggling Light in the Darkness Book Trailer"
+                    allow="accelerometer; encrypted-media; picture-in-picture"
+                    allowfullscreen loading="lazy"></iframe>
+            -->
+        </div>
+    </section>
+
+    <div class="about-section" id="about">
+        <div class="about-grid">
+            <div class="author-img-container">
+                <img src="john-raceala.jpg" alt="John Raceala Portrait" class="author-photo">
+            </div>
+            <div>
+                <h2 class="section-heading">Meet John Raceala</h2>
+
+                <p style="margin-bottom: 1.2rem;">John Raceala is the author of <em>Smuggling Light in the Darkness</em>, a powerful true story of faith, Bible smuggling, and survival behind the Iron Curtain. Living in Communist Romania where churches were monitored and possessing a Bible was a dangerous act, John experienced firsthand the relentless pressure of persecution.</p>
+
+                <p style="margin-bottom: 1.2rem;">Now retired and living in Arkansas, John writes to honor the silent heroes who risked everything for their faith, reminding readers that even the smallest acts of courage can carry light into the darkest places in Romania, where printing Bibles was forbidden and smuggling them was a crime.</p>
+
+                <div class="award-banner">
+                    <h4>Eleanor Roosevelt Memorial Excellence Award</h4>
+                    <p>In April 2021, in Brussels, the International Association for the Defense of Religious Liberty (AIDLR) presented John with the Excellence Award as an Ambassador for Dignity, Conscience &amp; Freedom. This recognized his courage to follow his conscience under persecution and his lifelong leadership for human dignity and religious freedom.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-heading">Get In Touch</h2>
+        <p>For speaking engagements, book clubs, media inquiries, or reader notes, you can contact John directly via email:</p>
+        <a href="mailto:jraceala@gmail.com" class="email-link">jraceala@gmail.com</a>
+        <p>John reads all of his correspondence and appreciates hearing from his readers.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 John Raceala. All rights reserved. Built via GitHub Pages.</p>
+    </footer>
+
+</body>
+                  </html>
